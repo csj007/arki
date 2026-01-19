@@ -54,7 +54,7 @@ function initTimeSelectors(prefix) {
   }
 
   // 分：0, 6, 12, 18, 24, 30, 36, 42, 48, 54（可选每6分钟，便于对齐恢复机制）
-  for (let m = 0; m < 60; m += 6) {
+  for (let m = 0; m < 60; m++) {
     const opt = document.createElement("option");
     opt.value = m;
     opt.textContent = m.toString().padStart(2, '0');
@@ -68,7 +68,7 @@ function setDefaultTime(prefix, date) {
   document.getElementById(`${prefix}-month`).value = date.getMonth() + 1;
   document.getElementById(`${prefix}-day`).value = date.getDate();
   document.getElementById(`${prefix}-hour`).value = date.getHours();
-  document.getElementById(`${prefix}-minute`).value = Math.floor(date.getMinutes() / 6) * 6; // 对齐6分钟
+  document.getElementById(`${prefix}-minute`).value = date.getMinutes();
 }
 
 // 获取时间从下拉框
